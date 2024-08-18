@@ -1,0 +1,5 @@
+/node_modules
+.idea/
+dist/
+.wwebjs_auth/
+.wwebjs_cache/
