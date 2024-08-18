@@ -7,7 +7,22 @@ export async function saveHtmlScreenshot(htmlString: string): Promise<string> {
   Logger().info(`Received HTML. Attempting to Generate Image`)
   return new Promise<string>(async (resolve, reject) => {
     try {
-      const browser = await puppeteer.launch()
+      const browser = await puppeteer.launch({
+        executablePath: '/usr/bin/chromium-browser',
+        ignoreHTTPSErrors: true,
+        args: [
+          '--no-sandbox',
+          '-disable-setuid-sandbox',
+          '--disable-extensions',
+          '--disable-web-sexurity',
+          '--disable-dev-shm-usage',
+          '--disable-accelerated-2d-canvas',
+          '--no-first-run',
+          '--no-zygote',
+          '--single-process',
+          '--disable-gpu',
+        ],
+      })
       const page = await browser.newPage()
 
       await page.setContent(htmlString)
