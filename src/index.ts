@@ -3,7 +3,7 @@ import { saveHtmlScreenshot } from './renderer'
 import getLogger from './utils/logger'
 
 const app = express()
-const port = 5600
+const port = 5646
 
 app.use(express.json())
 app.post('/api/v1/render', async (req, res) => {
