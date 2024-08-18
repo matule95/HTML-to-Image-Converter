@@ -9,7 +9,6 @@ export async function saveHtmlScreenshot(htmlString: string): Promise<string> {
     try {
       const browser = await puppeteer.launch({
         executablePath: '/usr/bin/chromium-browser',
-        ignoreHTTPSErrors: true,
         args: [
           '--no-sandbox',
           '-disable-setuid-sandbox',
